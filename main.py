@@ -13,8 +13,8 @@ st.image(FORTH)
 
 Exudates='Test images/Exudates.png'
 Hemmorhages='Test images/Hemmorhages.png'
-Microaeurysms='Test images/Microaneurysms.png'
-Soft_Exudates='Test images/Soft Exudates.png'
+Microaeurysms='Test images/Microaeurysms.png'
+Soft_Exudates='Test images/Soft_Exudates.png'
 images={'Exudates':Exudates,'Hemmorhages':Hemmorhages,'Microaeurysms':Microaeurysms,'Soft Exudates':Soft_Exudates}
 
 def load_model_(Original_image,lesion):  
