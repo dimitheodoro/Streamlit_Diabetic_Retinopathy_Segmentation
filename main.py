@@ -45,7 +45,7 @@ if selectbox == 'demo':
         st.image(resized_image,caption='original image')
     with col2:
         _,prediction = load_model_(images[radiobox],images[radiobox][12::][:-4]+'_weights.h5')
-        resized_prediction = cv2.resize(prediction,resized_image.shape)
+        resized_prediction = cv2.resize(prediction,(resized_image.shape[0],resized_image.shape[1]))
         st.image(resized_prediction,caption='segmented image')
 
 if selectbox == 'upload my image':
@@ -57,7 +57,7 @@ if selectbox == 'upload my image':
         st.image(resized_image,caption='original image')
     with col2:
         _,prediction = load_model_(images[radiobox],images[radiobox][12::][:-4]+'_weights.h5')
-        resized_prediction = cv2.resize(prediction,resized_image.shape)
+        resized_prediction = cv2.resize(prediction,(resized_image.shape[0],resized_image.shape[1]))
         st.image(resized_prediction,caption='segmented image')
 
 
