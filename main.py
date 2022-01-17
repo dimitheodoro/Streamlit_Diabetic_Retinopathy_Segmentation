@@ -17,7 +17,7 @@ Microaeurysms='Test images/Microaneurysms.png'
 Soft_Exudates='Test images/Soft Exudates.png'
 images={'Exudates':Exudates,'Hemmorhages':Hemmorhages,'Microaeurysms':Microaeurysms,'Soft Exudates':Soft_Exudates}
 
-def load_model(Original_image,lesion):  
+def load_model_(Original_image,lesion):  
     model = load_model(lesion+'_weights.h5')
     test_image0= image.load_img(Original_image, target_size = (512, 512,3)) 
     test_image = image.img_to_array(test_image0)
@@ -44,7 +44,7 @@ if selectbox == 'demo':
     with col1:
         st.image(resized_image,caption='original image')
     with col2:
-        _,prediction = load_model(images[radiobox],images[radiobox][12::][:-4]+'_weights.h5')
+        _,prediction = load_model_(images[radiobox],images[radiobox][12::][:-4]+'_weights.h5')
         resized_prediction = cv2.resize(prediction,None,fx=0.5,fy=0.5)
         st.image(resized_prediction,caption='segmented image')
 
@@ -56,7 +56,7 @@ if selectbox == 'upload my image':
     with col1:
         st.image(resized_image,caption='original image')
     with col2:
-        _,prediction = load_model(images[radiobox],images[radiobox][12::][:-4]+'_weights.h5')
+        _,prediction = load_model_(images[radiobox],images[radiobox][12::][:-4]+'_weights.h5')
         resized_prediction = cv2.resize(prediction,None,fx=0.5,fy=0.5)
         st.image(resized_prediction,caption='segmented image')
 
