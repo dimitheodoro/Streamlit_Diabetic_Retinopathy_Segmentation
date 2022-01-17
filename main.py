@@ -11,10 +11,10 @@ FORTH = imread('FORTH.png')
 st.header("Segmentation of Diabetic Retinopathy lesions")
 st.image(FORTH)
 
-Exudates=r'Test images\Exudates.png'
-Hemmorhages=r'Test images\Hemmorhages.png'
-Microaeurysms=r'Test images\Microaneurysms.png'
-Soft_Exudates=r'Test images\Soft Exudates.png'
+Exudates='Test images/Exudates.png'
+Hemmorhages='Test images/Hemmorhages.png'
+Microaeurysms='Test images/Microaneurysms.png'
+Soft_Exudates='Test images/Soft Exudates.png'
 images={'Exudates':Exudates,'Hemmorhages':Hemmorhages,'Microaeurysms':Microaeurysms,'Soft Exudates':Soft_Exudates}
 
 def load_model(Original_image,lesion):  
