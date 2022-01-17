@@ -18,7 +18,7 @@ Soft_Exudates='Test images/Soft_Exudates.png'
 images={'Exudates':Exudates,'Hemmorhages':Hemmorhages,'Microaeurysms':Microaeurysms,'Soft Exudates':Soft_Exudates}
 
 def load_model_(Original_image,lesion):  
-    model = load_model(lesion)
+    model = load_model(lesion,compile=False)
     test_image0= image.load_img(Original_image, target_size = (512, 512,3)) 
     test_image = image.img_to_array(test_image0)
     test_image=test_image/255.0
