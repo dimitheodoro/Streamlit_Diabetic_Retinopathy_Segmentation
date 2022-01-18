@@ -54,11 +54,11 @@ if selectbox == 'upload my image':
     uploaded_file = st.file_uploader("Choose a fundus image from your devise")
     if uploaded_file is not None:
         col1,col2 = st.beta_columns(2)
-        resized_image = cv2.resize(imread( images[radiobox]),None,fx=0.5,fy=0.5)
+        resized_image = cv2.resize(imread( uploaded_file),None,fx=0.5,fy=0.5)
         with col1:
             st.image(resized_image,caption='original image')
         with col2:
-            _,prediction = load_model_(uploaded_file,images[radiobox][12::][:-4]+'_weights.h5')
+            _,prediction = load_model_(resized_image,images[radiobox][12::][:-4]+'_weights.h5')
             new_dims = (resized_image.shape[0],resized_image.shape[1])
             resized_prediction = cv2.resize(prediction.astype('float32'),new_dims)
             st.image(resized_prediction,clamp=True,caption='segmented image')
