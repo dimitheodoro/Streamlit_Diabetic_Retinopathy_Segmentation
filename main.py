@@ -67,10 +67,9 @@ if selectbox == 'demo':
 if selectbox == 'upload my image':
     st.title(images[radiobox][12::][:-4])
     uploaded_file = st.file_uploader("Choose a fundus image from your devise",type=['png', 'jpg'])
-    st.write(uploaded_file)
     if uploaded_file is not None:
         col1,col2 = st.beta_columns(2)
-        resized_image = cv2.resize(imread( uploaded_file),None,fx=0.5,fy=0.5)
+        resized_image = cv2.resize(imread( uploaded_file),(256,256))
         with col1:
             st.image(resized_image,caption='original image')
         with col2:
