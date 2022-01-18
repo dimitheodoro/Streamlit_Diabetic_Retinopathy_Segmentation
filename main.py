@@ -6,7 +6,7 @@ from  PIL import *
 import streamlit as st
 import cv2
 from skimage.io import imread
-from io import StringIO
+# from io import StringIO
 
 FORTH = imread('FORTH.png')
 st.header("Segmentation of Diabetic Retinopathy lesions")
@@ -60,9 +60,8 @@ if selectbox == 'upload my image':
         with col1:
             st.image(resized_image,caption='original image')
         with col2:
-            stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
-            string_data = stringio.read()
-            _,prediction = load_model_(string_data,images[radiobox][12::][:-4]+'_weights.h5')
+            bytes_data = uploaded_file.getvalue()
+            _,prediction = load_model_(bytes_data,images[radiobox][12::][:-4]+'_weights.h5')
             new_dims = (resized_image.shape[0],resized_image.shape[1])
             resized_prediction = cv2.resize(prediction.astype('float32'),new_dims)
             st.image(resized_prediction,clamp=True,caption='segmented image')
