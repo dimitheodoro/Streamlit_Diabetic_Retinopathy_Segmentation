@@ -45,9 +45,9 @@ if selectbox == 'demo':
         st.image(resized_image,caption='original image')
     with col2:
         _,prediction = load_model_(images[radiobox],images[radiobox][12::][:-4]+'_weights.h5')
-        st.write("prediction type:",prediction.shape[0].dtype)
+        st.write("prediction type:",type(prediction.shape[0]))
         new_dims = (resized_image.shape[0],resized_image.shape[1])
-        st.write("new_dims type",new_dims.shape[0].dtype)
+        st.write("new_dims type",type(new_dims.shape[0]))
 #         resized_prediction = cv2.resize(prediction,new_dims)
 #         st.image(resized_prediction,caption='segmented image')
 
