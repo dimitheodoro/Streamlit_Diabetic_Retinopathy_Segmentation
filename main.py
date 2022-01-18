@@ -49,6 +49,7 @@ if selectbox == 'demo':
         new_dims = (resized_image.shape[0],resized_image.shape[1])
         st.write("new_dims type",type(new_dims[0]))
 #         resized_prediction = cv2.resize(prediction,new_dims)
+        st.image(prediction,caption='segmented image')
 #         st.image(resized_prediction,caption='segmented image')
 
 if selectbox == 'upload my image':
