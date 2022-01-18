@@ -30,6 +30,20 @@ def load_model_(Original_image,lesion):
     predict=(predict>0.5)*255
     return test_image0,predict
 
+def load_model_2(Original_image,lesion):  
+    model = load_model(lesion,compile=False)
+    test_image0 =Image.open(Original_image)
+    newsize = (512, 512)
+    test_image = test_image0.resize(newsize)
+    test_image_array= image.img_to_array(test_image)
+    test_image=test_image_array/255.0
+    test_image = np.expand_dims(test_image, axis = 0)
+    predict=model.predict(test_image)
+    predict=predict[0]
+    predict=np.concatenate([predict,predict,predict],axis=2)
+    predict=(predict>0.5)*255
+    return test_image_array,predict
+
 radiobox = st.sidebar.radio(
      "Choose the type of lesion to be segmented",
      ('Exudates', 'Hemmorhages', 'Microaeurysms','Soft Exudates'))
@@ -60,9 +74,7 @@ if selectbox == 'upload my image':
         with col1:
             st.image(resized_image,caption='original image')
         with col2:
-            bytes_data = uploaded_file.read()
-            st.write(bytes_data)
-            _,prediction = load_model_(bytes_data,images[radiobox][12::][:-4]+'_weights.h5')
+            _,prediction = load_model_2(uploaded_file,images[radiobox][12::][:-4]+'_weights.h5')
             new_dims = (resized_image.shape[0],resized_image.shape[1])
             resized_prediction = cv2.resize(prediction.astype('float32'),new_dims)
             st.image(resized_prediction,clamp=True,caption='segmented image')
