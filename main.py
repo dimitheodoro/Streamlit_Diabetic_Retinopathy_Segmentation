@@ -48,9 +48,9 @@ if selectbox == 'demo':
         st.write("prediction type:",type(prediction.shape[0]))
         new_dims = (resized_image.shape[0],resized_image.shape[1])
         st.write("new_dims type",type(new_dims[0]))
-#         resized_prediction = cv2.resize(prediction,new_dims)
-        st.image(prediction,caption='segmented image')
-#         st.image(resized_prediction,caption='segmented image')
+        resized_prediction = cv2.resize(prediction.astype('float32'),new_dims)
+#         st.image(prediction,caption='segmented image')
+        st.image(resized_prediction,caption='segmented image')
 
 if selectbox == 'upload my image':
     st.title(images[radiobox][12::][:-4]+'_weights.h5')
@@ -60,9 +60,17 @@ if selectbox == 'upload my image':
     with col1:
         st.image(resized_image,caption='original image')
     with col2:
+#         _,prediction = load_model_(images[radiobox],images[radiobox][12::][:-4]+'_weights.h5')
+#         resized_prediction = cv2.resize(prediction,(resized_image.shape[0],resized_image.shape[1]))
+#         st.image(resized_prediction,caption='segmented image')
+    with col2:
         _,prediction = load_model_(images[radiobox],images[radiobox][12::][:-4]+'_weights.h5')
-        resized_prediction = cv2.resize(prediction,(resized_image.shape[0],resized_image.shape[1]))
-        st.image(resized_prediction,caption='segmented image')
+        st.write("prediction type:",type(prediction.shape[0]))
+        new_dims = (resized_image.shape[0],resized_image.shape[1])
+        st.write("new_dims type",type(new_dims[0]))
+#         resized_prediction = cv2.resize(prediction,new_dims)
+        st.image(prediction,caption='segmented image')
+#         st.image(resized_prediction,caption='segmented image')
 
 
 
