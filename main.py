@@ -48,6 +48,7 @@ if selectbox == 'demo':
         st.write("prediction shape:",prediction.shape)
         st.write("resized_image shape:",resized_image.shape[0],"---",resized_image.shape[0])
         new_dims = (resized_image.shape[0],resized_image.shape[1])
+        print(new_dims)
         resized_prediction = cv2.resize(prediction,new_dims)
         #st.image(resized_prediction,caption='segmented image')
 
