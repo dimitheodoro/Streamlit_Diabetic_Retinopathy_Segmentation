@@ -59,7 +59,7 @@ if selectbox == 'upload my image':
     resized_image = cv2.resize(imread( images[radiobox]),None,fx=0.5,fy=0.5)
     with col1:
         st.image(resized_image,caption='original image')
-    with col2:
+#     with col2:
 #         _,prediction = load_model_(images[radiobox],images[radiobox][12::][:-4]+'_weights.h5')
 #         resized_prediction = cv2.resize(prediction,(resized_image.shape[0],resized_image.shape[1]))
 #         st.image(resized_prediction,caption='segmented image')
