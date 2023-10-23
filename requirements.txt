@@ -1,7 +1,6 @@
 streamlit==0.69.2
 keras==2.7.0
 numpy==1.19.5
-matplotlib==2.2.2
 Pillow==8.0.0
 tensorflow==2.7.0
 opencv-python-headless
