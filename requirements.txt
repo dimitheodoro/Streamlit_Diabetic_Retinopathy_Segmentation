@@ -1,3 +1,5 @@
+pkg-config
+default-libmysqlclient-dev
 streamlit==0.69.2
 keras==2.7.0
 numpy==1.19.5
