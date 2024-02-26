@@ -10,7 +10,7 @@ from skimage.io import imread
 from skimage import io, util
 # from io import StringIO
 
-FORTH = imread('C:\Theodoropoulos\Code\Diabetic retinopathy\Streamlit_Diabetic_Retinopathy_Segmentation\e17_ventures.jpg')
+FORTH = imread('e17_ventures.jpg')
 st.header("Segmentation of Diabetic Retinopathy lesions")
 st.subheader("by Theodoropoulos Dimitrios")
 st.image(FORTH)
