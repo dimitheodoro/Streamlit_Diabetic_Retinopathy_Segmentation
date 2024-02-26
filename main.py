@@ -57,7 +57,7 @@ selectbox = st.sidebar.selectbox(
 
 if selectbox == 'demo':
     st.title(images[radiobox][12::][:-4])
-    col1,col2 = st.columns(2)
+    col1,col2 = st.beta_columns(2)
     resized_image = cv2.resize(imread( images[radiobox]),None,fx=0.5,fy=0.5)
     with col1:
         st.image(resized_image,caption='original image')
@@ -73,7 +73,7 @@ if selectbox == 'Segment my full retinal image':
     image_path = st.file_uploader("Choose a fundus image from your devise",type=['png', 'jpg'])
     st.write("Exudates are magenta, Hemmorhages are cyan ,Microaeurysms are blue ,Soft Exudates are yellow")
     if image_path is not None:
-        col1,col2 = st.columns(2)
+        col1,col2 = st.beta_columns(2)
         # image_path = 'Test images\IDRiD_022.jpg'
         # original=imread(image_path)
 
