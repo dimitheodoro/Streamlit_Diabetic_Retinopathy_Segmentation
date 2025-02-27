@@ -1,8 +1,0 @@
-streamlit==0.69.2
-keras==2.7.0
-numpy==1.19.5
-Pillow==8.0.0
-tensorflow==2.7.0
-opencv-python-headless
-scikit-image==0.19.1
-click==8.0.4
